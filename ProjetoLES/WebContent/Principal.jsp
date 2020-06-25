@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="design.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<title>Upsell Hardware</title>
+<title>Upsell Hardware - Home</title>
 </head>
 <body>
 	<!-- Menu de Nevagação -->
@@ -26,11 +26,15 @@
 					usuario = (Usuario) session.getAttribute("usuario");
 					if(usuario != null){
 						%><li style="color: black">Olá, <%=usuario.getUsuario()%></li><%
+						%><li><a href="./usuario">Sair</a></li><%
+						if(usuario.temPermissaoAdmin()){
+							%><li style="color: black"><a href="inserirproduto.jsp"> Inserir Novo Produto </a></li><%
+						}
+						
 					} else {
 						%><li style="color: black"><a href="login.jsp"> Cadastro / Login </a></li><%
 					}
 				%>
-				
 			</ul>
 		</nav>
 	</div>

@@ -26,7 +26,7 @@
 		<%
 			String msg = (String) session.getAttribute("msg");
 			if (msg != null){
-				session.setAttribute("msg!", null);
+				session.setAttribute("msg", null);
 				%><h3 style="color: white;"><%=msg %></h3> <%
 			}
 		%>
