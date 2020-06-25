@@ -5,24 +5,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Logincss.css">
-<title>Upsell Hardware</title>
+<title>Upsell Hardware - Login</title>
 </head>
 <body>
 	<!-- Formulário de Login -->
 	<div class="caixa">
 		<h2> Login </h2>
-		<form>
+		<form action="./login" method="post">
 			<div class="input">
-				<input type="text">
+				<input type="text" name="usuario">
 				<label> Usuário </label>
 			</div>
 			<div class="input">
-				<input type="password">
+				<input type="password" name="senha">
 				<label> Senha </label>
 			</div>
-			<input type="submit" id="cmd" value="Login">
-			<input type="submit" id="cmd" value="Cadastrar">
+			<button type="submit" id="cmd" name="cmd" value="login">Entrar</button>
+			<button type="submit" id="cmd" name="cmd" value="add">Cadastrar</button>
 		</form>
+		<%
+			String msg = (String) session.getAttribute("msg");
+			if (msg != null){
+				session.setAttribute("msg!", null);
+				%><h3><%=msg %></h3> <%
+			}
+		%>
 	</div>
 </body>
 </html>

@@ -11,7 +11,7 @@ public class DaoGenerica {
 	public Connection getConnection() {
 		try {
 			Class.forName("net.sourceforge.jtds.jdbc.Driver");
-			conexao = DriverManager.getConnection("jdbc:jtds:sqlserver://127.0.0.1:1433;DatabaseName=db_HARDWARE;namedPipes=True");
+			conexao = DriverManager.getConnection("jdbc:jtds:sqlserver://127.0.0.1:1433;DatabaseName=Sistema_vendas;namedPipes=True");
 		}
 		catch (ClassNotFoundException | SQLException e) 
 		{
