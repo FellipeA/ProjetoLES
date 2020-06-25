@@ -27,7 +27,6 @@ public class LoginController extends HttpServlet{
 		Usuario usuario = new Usuario();
 		usuario.setUsuario(request.getParameter("usuario"));
 		usuario.setSenha(request.getParameter("senha"));
-		System.out.println(usuario.getUsuario());
 		DaoUsuario daoUsuario = new DaoUsuario();
 		if (usuario.getUsuario().equals("admin")) {
 			usuario.setPermissao(true);
