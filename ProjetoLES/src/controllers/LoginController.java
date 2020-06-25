@@ -18,7 +18,7 @@ public class LoginController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
+		resp.sendRedirect("./login.jsp");
 	}
 	
 	@Override
@@ -41,7 +41,7 @@ public class LoginController extends HttpServlet{
 		} else {
 			if(daoUsuario.pesquisaSeExisteUsuario(usuario)) {
 				request.getSession().setAttribute("usuario", usuario);
-				response.sendRedirect("./Principal.jsp");
+				response.sendRedirect("./");
 			} else {
 				request.getSession().setAttribute("msg", "Usuário não encontrado");
 				response.sendRedirect("./login.jsp");
