@@ -1,3 +1,4 @@
+<%@page import="entity.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -20,7 +21,16 @@
 				<li><a href="#home"> Home </a></li>
 				<li><a href="#produtos"> Produtos </a></li>
 				<li><a href="#carrinho"> Carrinho </a></li>
-				<li><a href="login.jsp"> Cadastro / Login </a></li>
+				<%
+					Usuario usuario = new Usuario();
+					usuario = (Usuario) session.getAttribute("usuario");
+					if(usuario != null){
+						%><li style="color: black">Olá, <%=usuario.getUsuario()%></li><%
+					} else {
+						%><li style="color: black"><a href="login.jsp"> Cadastro / Login </a></li><%
+					}
+				%>
+				
 			</ul>
 		</nav>
 	</div>
