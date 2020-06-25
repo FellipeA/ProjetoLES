@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="design.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> 
 <title>Upsell Hardware - Home</title>
 </head>
 <body>
