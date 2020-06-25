@@ -18,7 +18,7 @@ public class DaoUsuario {
 	
 	public boolean insereUsuario(Usuario u) {
 		try {
-			String sql = "INSERT INTO usuario(usuario, senha) VALUES ("+u.getUsuario()+", "+u.getSenha()+")";
+			String sql = "INSERT INTO usuario(usuario, senha) VALUES ('"+u.getUsuario()+"', '"+u.getSenha()+"')";
 			Statement stmt = c.createStatement();
 			stmt.execute(sql);
 			stmt.close();
@@ -32,7 +32,7 @@ public class DaoUsuario {
 		try {
 			String sql = "SELECT usuario, senha "
 					+ "FROM usuario "
-					+ "where usuario = "+u.getUsuario()+" AND senha = "+u.getSenha()+"";
+					+ "where usuario = '"+u.getUsuario()+"' AND senha = '"+u.getSenha()+"'";
 			Statement stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			if (rs.next()) {

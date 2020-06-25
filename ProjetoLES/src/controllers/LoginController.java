@@ -26,13 +26,13 @@ public class LoginController extends HttpServlet{
 		String cmd = request.getParameter("cmd");
 		Usuario usuario = new Usuario();
 		usuario.setUsuario(request.getParameter("usuario"));
-		usuario.setSenha(request.getParameter("usuario"));
+		usuario.setSenha(request.getParameter("senha"));
+		System.out.println(usuario.getUsuario());
 		DaoUsuario daoUsuario = new DaoUsuario();
 		if (usuario.getUsuario().equals("admin")) {
 			usuario.setPermissao(true);
 		}
 		if (cmd.equals("add")) {
-			
 			if(daoUsuario.insereUsuario(usuario)) {
 				request.getSession().setAttribute("msg", "Usuário cadastrado com sucesso!");
 			} else {
@@ -41,7 +41,8 @@ public class LoginController extends HttpServlet{
 			response.sendRedirect("./login.jsp");
 		} else {
 			if(daoUsuario.pesquisaSeExisteUsuario(usuario)) {
-				response.sendRedirect("./home.jsp");
+				request.getSession().setAttribute("usuario", usuario);
+				response.sendRedirect("./Principal.jsp");
 			} else {
 				request.getSession().setAttribute("msg", "Usuário não encontrado");
 				response.sendRedirect("./login.jsp");

@@ -20,7 +20,7 @@
 				<li><a href="#home"> Home </a></li>
 				<li><a href="#produtos"> Produtos </a></li>
 				<li><a href="#carrinho"> Carrinho </a></li>
-				<li><a href="Login.jsp"> Cadastro / Login </a></li>
+				<li><a href="login.jsp"> Cadastro / Login </a></li>
 			</ul>
 		</nav>
 	</div>
