@@ -1,0 +1,146 @@
+/* Geral do Site */
+body 
+{
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000000;
+	margin: 0px;
+	padding: 0px;
+}
+.botao 
+{
+    color: #f1f1f1;
+    text-decoration: none;
+    padding: 10px 30px;
+    background-color: #8f3faf;
+    font-size: .9em;
+    border-radius: 3px;
+}
+/* Menu de Navegação */
+nav ul
+{
+	background-color: white;
+	overflow: hidden;
+	color: #fff;
+	padding: 0px;
+	text-align: center;
+}
+nav ul li
+{
+	display: inline-block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 40px;
+	transition: all 0.5s ease 0s;
+}
+nav ul li a
+{
+	text-decoration: none;
+	color: black;
+	padding: 20px;
+	
+}
+nav ul li:hover
+{
+	background-color: #141ccf;
+	
+}
+nav h1
+{
+	width:200px;
+	float: left;
+	padding: 20px;
+	cursor: pointer;
+}
+nav img
+{
+	padding: 20px;
+	padding-left:100px;
+	max-width:100%;
+	height:auto;
+   cursor: default;
+}
+/* Rodapé */
+.footer
+{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: normal 16px sans-serif;
+	padding: 45px 50px;
+	margin-top: 20px;
+	position: absolute;
+	bottom: 0;
+}
+.footer .footeresquerda p
+{
+	color:  #8f9296;
+	font-size: 14px;
+	margin: 0;
+}
+.footer p.footerbotoes
+{
+	font-size:18px;
+	font-weight: bold;
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+.footer p.footerbotoes a
+{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+.footer .footerdireita
+{
+	float: right;
+	margin-top: 6px;
+	max-width: 180px;
+}
+.footer .footerdireita a
+{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color:  #33383b;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+	margin-left: 3px;
+}
+
+/* TELA LOGIN */
+.login {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	margin: 100px 0 0 -150px;
+	width: 300px;
+	height: 300px;
+}
+
+.login h1 {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(0, 0, 0, 0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+}
