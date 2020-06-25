@@ -13,15 +13,15 @@
 		<h2> Login </h2>
 		<form>
 			<div class="input">
-				<input type="texto">
+				<input type="text">
 				<label> Usuário </label>
 			</div>
 			<div class="input">
-				<input type="senha">
+				<input type="password">
 				<label> Senha </label>
 			</div>
-			<input type="submit" value="Login">
-			<input type="submit" value="Cadastrar">
+			<input type="submit" id="cmd" value="Login">
+			<input type="submit" id="cmd" value="Cadastrar">
 		</form>
 	</div>
 </body>
