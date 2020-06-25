@@ -59,7 +59,8 @@ body
 	transition: .5s;
 }
 
-.caixa .input input:focus ~ label
+.caixa .input input:focus ~ label,
+.caixa .input input:valid ~ label
 {
 	top: -18px;
 	left: 0;

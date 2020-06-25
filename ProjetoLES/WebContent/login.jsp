@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -13,11 +13,11 @@
 		<h2> Login </h2>
 		<form action="./login" method="post">
 			<div class="input">
-				<input type="text" name="usuario">
+				<input type="text" name="usuario" required="">
 				<label> Usuário </label>
 			</div>
 			<div class="input">
-				<input type="password" name="senha">
+				<input type="password" name="senha" required="">
 				<label> Senha </label>
 			</div>
 			<button type="submit" id="cmd" name="cmd" value="login">Entrar</button>
