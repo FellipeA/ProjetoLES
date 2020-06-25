@@ -15,11 +15,12 @@
 		<nav>
 			<ul>
 				<h1>
-					<img src="./img/logoHardware.gif"></img>
+					<img src="./img/logo.png"></img>
 				</h1>
 				<li><a href="#home"> Home </a></li>
 				<li><a href="#produtos"> Produtos </a></li>
-				<li><a href="#Login.jsp"> Cadastro / Login </a></li>
+				<li><a href="#carrinho"> Carrinho </a></li>
+				<li><a href="Login.jsp"> Cadastro / Login </a></li>
 			</ul>
 		</nav>
 	</div>
