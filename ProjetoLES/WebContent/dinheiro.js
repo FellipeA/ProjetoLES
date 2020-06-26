@@ -1,5 +1,5 @@
 $(function() {
-  $('[type=money]').maskMoney({
+  $('.preco').maskMoney({
     thousands: '.',
     decimal: ','
   });

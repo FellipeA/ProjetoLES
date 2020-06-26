@@ -13,22 +13,24 @@
 		<h2> Produto </h2>
 		<form action="./login" method="post">
 			<div class="input">
-				<label> Nome </label>
-				<input type="text" name="nomeProduto" required="">
+				<label> Nome &nbsp</label>
+				<input type="text" name="nomeProduto" required="" placeholder="Digite o nome do produto">
 			</div>
 			<div class="input">
-				<label> Descrição </label>
-				<textarea class="descricao" rows="5" cols="50" required=""></textarea>
+				<label> Preço &nbsp</label>
+				<input type="text" name="preco" required="" placeholder="Digite o preço do produto">
 			</div>
 			<div class="input">
-				<label> Preço </label>
-				<input type="money" name="preco" required="">
+				<label class="descp"> Descrição </label><br><br>
+				<textarea rows="4" cols="50" placeholder="Digite a descrição do produto"></textarea>
 			</div>
+		</form>
+		<div class="botoes">
 			<button type="submit" id="cmd" name="cmd" value="inserir">Inserir</button>
 			<button type="submit" id="cmd" name="cmd" value="atualizar">Atualizar</button>
 			<button type="submit" id="cmd" name="cmd" value="excluir">Excluir</button>
-		</form>
+		</div>
 	</div>
-	<script type="text/javascript" src="./resources/dinheiro.js"></script>
+	<script type="text/javascript" src="./dinheiro.js"></script>
 </body>
 </html>

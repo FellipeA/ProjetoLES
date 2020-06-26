@@ -1,10 +1,18 @@
 /* Geral do Site */
+html
+{
+	background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
+	background-repeat: no-repeat;
+	height: 100%;
+}
 body 
 {
-    font-family: Helvetica, Arial, sans-serif;
+	
+   	font-family: 'Roboto', sans-serif;
     color: #000000;
 	margin: 0px;
 	padding: 0px;
+
 }
 .botao 
 {
@@ -18,7 +26,7 @@ body
 /* Menu de Navegação */
 nav ul
 {
-	background-color: white;
+	background: transparent;
 	overflow: hidden;
 	color: #fff;
 	padding: 0px;
@@ -26,39 +34,53 @@ nav ul
 }
 nav ul li
 {
+	margin-right: 20px;
+	margin-left: 0px;
 	display: inline-block;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin-top: 40px;
-	transition: all 0.5s ease 0s;
+	transition: all 0.8s ease 0s;
 }
 nav ul li a
 {
 	text-decoration: none;
 	color: black;
 	padding: 20px;
-	
 }
 nav ul li:hover
 {
-	background-color: #141ccf;
+	background-image: linear-gradient(90deg, rgba(31,181,212,1) 35%, rgba(254,254,254,1) 72%);
+	transform: scale(1.1);
 }
 nav h1
 {
 	width:200px;
 	float: left;
-	padding: 20px;
 	cursor: pointer;
 }
 nav img
 {
-	padding: 20px;
-	padding-left:100px;
+	padding-left:600px;
 	width: 50%;
 	height:auto;
    	cursor: default;
 }
-
+/* Slides */
+.slides
+{
+	padding-top: 30px;
+	margin-left: 25% !important;
+}
+.slides ul
+{
+	list-style: none;
+}
+.slides img
+{
+	width: 984px;
+	height: 474px;
+}
 /* Rodapé */
 .footer
 {
