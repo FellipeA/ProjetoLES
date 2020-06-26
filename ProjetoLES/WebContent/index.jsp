@@ -36,6 +36,17 @@
 			</ul>
 		</nav>
 	</div>
+	<!-- Produtos -->
+	<div class="caixa-produtos">
+		<ul>
+			<h1> Nossos Produtos </h1>
+			<div class="listaprodutos">
+				<div class="produto">
+					
+				</div>
+			</div>
+		</ul>
+	</div>
 	<!-- Slider -->
 	<div class="slides">
 		<ul>
