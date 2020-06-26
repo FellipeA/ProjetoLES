@@ -83,25 +83,7 @@ nav img
 	height: 474px;
 }
 /* Produtos */
-.caixa-produtos
-{
-	padding: 0;
-	max-width: 1200px;
-	margin: 0 auto;
-	position: relative;
-	overflow: auto;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	padding-bottom: 100px;
-	box-sizing: border-box;
-	list-style: none;
-}
-.caixa-produtos .produtos
-{
-	overflow: auto;
-	padding: 5px 5px 40px 5px;
-	position: relative;
-}
+
 /* Rodapé */
 .footer
 {
@@ -113,7 +95,7 @@ nav img
 	font: normal 16px sans-serif;
 	padding: 45px 50px;
 	margin-top: 20px;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 }
 .footer .footeresquerda p

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="inserirproduto.css">
+<link rel="stylesheet" type="text/css" href="./css/inserirproduto.css">
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
 	rel="stylesheet">
