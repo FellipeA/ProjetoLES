@@ -53,4 +53,23 @@ public class DaoProduto {
 		return produtos;
 	}
 	
+	public Produto getProdutoPorId(long id) {
+		Produto p = new Produto();
+		try {
+			String sql = "Select * from produto where id = "+id+"";
+			Statement stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				p = new Produto();
+				p.setId(id);
+				p.setNome(rs.getString("nome"));
+				p.setDescricao(rs.getString("descricao"));
+				p.setPreco(rs.getDouble("preco"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
+	
 }

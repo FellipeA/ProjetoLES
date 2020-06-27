@@ -13,7 +13,7 @@ public class UsuarioController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("usuario", null);
-		response.sendRedirect("./login.jsp");
+		response.sendRedirect("./");
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

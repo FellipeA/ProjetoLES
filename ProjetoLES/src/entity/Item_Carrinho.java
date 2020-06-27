@@ -6,6 +6,7 @@ public class Item_Carrinho {
 	private int quantidade;
 	
 	public Item_Carrinho() {
+		
 	}
 	
 	public Item_Carrinho(Produto produto, int quantidade) {

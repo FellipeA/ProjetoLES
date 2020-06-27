@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet{
 			if(daoUsuario.insereUsuario(usuario)) {
 				request.getSession().setAttribute("msg", "Usuário cadastrado com sucesso!");
 			} else {
-				request.getSession().setAttribute("msg", "Login não disponível!");
+				request.getSession().setAttribute("msg", "Usuário já cadastrado!");
 			}
 			response.sendRedirect("./login.jsp");
 		} else {

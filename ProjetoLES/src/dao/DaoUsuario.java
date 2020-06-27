@@ -18,7 +18,12 @@ public class DaoUsuario {
 	
 	public boolean insereUsuario(Usuario u) {
 		try {
-			String sql = "INSERT INTO usuario(usuario, senha) VALUES ('"+u.getUsuario()+"', '"+u.getSenha()+"')";
+			int perm = 0;
+			if(u.temPermissaoAdmin()) {
+				perm=1;
+			}
+			String sql = "INSERT INTO usuario(usuario, senha, permissao) "
+					+ "VALUES ('"+u.getUsuario()+"', '"+u.getSenha()+"', "+perm+")";
 			Statement stmt = c.createStatement();
 			stmt.execute(sql);
 			stmt.close();
