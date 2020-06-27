@@ -31,6 +31,7 @@
 					<li class="nav-item active"><a class="nav-link" href="#">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Produtos</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Cadastro
 							/ Login</a></li>
@@ -96,7 +97,7 @@
 		</div>
 		<div class="footeresquerda">
 			<p class="footerbotoes">
-				<a href="#home">Home</a> · <a href="#produtos">Produtos</a> · <a
+				<a href="#home">Home</a> · <a href="#sobre">Sobre</a> · <a href="#produtos">Produtos</a> · <a
 					href="#produtos">Carrinho</a> · <a href="#">Cadastro / Login</a>
 			</p>
 			<p>Upsell Hardware &copy; 2020</p>
