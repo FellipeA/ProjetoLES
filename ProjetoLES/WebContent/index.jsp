@@ -1,3 +1,9 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.NumberFormat"%>
+<%@page import="entity.Produto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.DaoProduto"%>
 <%@page import="entity.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -31,17 +37,53 @@
 					<li class="nav-item active"><a class="nav-link" href="#">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Produtos</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Cadastro
+					<li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+					<li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+					<%
+						Usuario usuario = new Usuario();
+						usuario = (Usuario) session.getAttribute("usuario");
+						if (usuario != null) {
+					%>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> <span style="color: black;"><%=usuario.getUsuario()%></span>
+					</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="./usuario">Sair</a>
+						</div></li>
+					<%
+						if (usuario.temPermissaoAdmin()) {
+					%>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> <span style="color: black;">Gerenciar</span>
+					</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="./inserirproduto.jsp">Inserir Novo Produto</a>
+							<a class="dropdown-item" href="./relatorio.jsp">Relátorio de Vendas</a>
+						</div></li>
+					<%
+						}
+						List<Produto> carrinho = new ArrayList<Produto>();
+						if (session.getAttribute("carrinho") != null){
+							carrinho = (List<Produto>) session.getAttribute("carrinho");
+						}
+					%><li class="nav-item"><a class="nav-link" href="./carrinho/"><img src="./img/carrinho.svg">(<%=carrinho.size() %>)</a></li><%
+						} else {
+					%>
+					<li class="nav-item"><a class="nav-link" href="./login">Cadastro
 							/ Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"><img src="./img/carrinho.svg"></a></li>
+					<%
+						}
+					%>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- Slider -->
-	<div id="carouselExampleIndicators" class="carousel slide" 
+	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#carouselExampleIndicators" data-slide-to="0"
@@ -68,24 +110,42 @@
 	</div>
 	<!-- Sobre -->
 	<Section id="sobre">
-		<h2> Sobre Nós </h2>
-		<p>Somos uma empresa com iniciativa de cunho particular destinada ao desenvolvimento de aplicações para facilitar 
-			a compreensão e desenvolvimento do estudante em uma vasta gama de matérias.</p>
+		<h2>Qualidade Garantida!</h2>
+		<p>Somos uma empresa focada na melhor experiência possível de nossos cliente, <br><nobr>
+			para isso oferecemos <b>GARANTIA</b> de 3 <b>MESES</b> para qualquer um de nosssos <b>PRODUTOS</b>.</nobr></p>
 		<a href="#contato" class="botao">Cadastre-se</a>
 	</section>
 	<!-- Produtos -->
-	<div class="container">
-		<div class="row row-cols-1 row-cols-md-4">
-			<div class="col mb-4">
-				<div class="card">
-					<img src="img/cel.jpg" class="card-img-top" alt="Repelente">
-					<div class="card-body">
-						<h5 class="card-title">Celular Motorola</h5>
-						<p class="card-text">R$ 1500,00</p>
-						<button class="btn btn-primary">Comprar</button>
+	
+	<%
+		DaoProduto daoProduto = new DaoProduto();
+		List<Produto> produtos = new ArrayList<Produto>();
+		produtos = daoProduto.listaProdutos();
+	%>
+	
+	
+	<div class="container" id="produtos">
+		<div class="row row-cols-1 row-cols-md-3">
+		
+		<%
+			for(Produto produto : produtos) {
+				%>
+				<div class="col mb-4">
+					<div class="card">
+						<img src="./img/cpu.svg" class="card-img-top">
+						<div class="card-body">
+							<h5 class="card-title" id="nome"><%=produto.getNome().toUpperCase() %></h5>
+							<p class="card-text"><%=produto.getDescricao() %></p>
+							<p class="card-text" id="preco"><%=NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(produto.getPreco()) %></p>
+							<button class="btn btn-primary" onclick="addCart(<%=produto.getId()%>)">Comprar</button>
+						</div>
 					</div>
 				</div>
-			</div>
+				<%
+			}
+		%>
+		
+			
 		</div>
 	</div>
 	<!-- Rodapé -->
@@ -97,8 +157,9 @@
 		</div>
 		<div class="footeresquerda">
 			<p class="footerbotoes">
-				<a href="#home">Home</a> · <a href="#sobre">Sobre</a> · <a href="#produtos">Produtos</a> · <a
-					href="#produtos">Carrinho</a> · <a href="#">Cadastro / Login</a>
+				<a href="#home">Home</a> · <a href="#sobre">Sobre</a> · <a
+					href="#produtos">Produtos</a> · <a href="#produtos">Carrinho</a> ·
+				<a href="#">Cadastro / Login</a>
 			</p>
 			<p>Upsell Hardware &copy; 2020</p>
 		</div>
@@ -108,5 +169,7 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		
+	<script src="./javascript/carrinho.js"></script>
 </body>
 </html>

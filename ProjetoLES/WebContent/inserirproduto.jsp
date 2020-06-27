@@ -16,7 +16,7 @@
 		<form action="./login" method="post">
 			<div class="input">
 				<label> Nome &nbsp</label> <input type="text" name="nomeProduto"
-					required="" placeholder="Digite o nome do produto">
+					required placeholder="Digite o nome do produto">
 			</div>
 			<div class="input">
 				<label> Preço &nbsp</label>

@@ -25,18 +25,42 @@ public class CarrinhoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path = request.getPathInfo().replace("/", "");
+		List<Produto> carrinho;
+		Produto p;
+		long idProduto;
 		switch (path) {
 		case "":
 			response.sendRedirect("/ProjetoLES/carrinho.jsp");
 			break;
 		case "remover":
-			List<Produto> carrinho = (List<Produto>) request.getSession().getAttribute("carrinho");
-			int idProduto = Integer.parseInt(request.getParameter("id"));
-			Produto p = daoProduto.getProdutoPorId(idProduto);
+			carrinho = (List<Produto>) request.getSession().getAttribute("carrinho");
+			idProduto = Long.parseLong(request.getParameter("id"));
+			p = daoProduto.getProdutoPorId(idProduto);
 			carrinho.remove(p);
 			break;
 		case "finalizar":
 			finalizarCompra(request, response);
+			break;
+		case "add":
+			if (request.getSession().getAttribute("usuario") != null) {
+				if (request.getSession().getAttribute("carrinho") == null) {
+					carrinho = new ArrayList<Produto>();
+					request.getSession().setAttribute("carrinho", carrinho);
+				} else {
+					carrinho = (List<Produto>) request.getSession().getAttribute("carrinho");
+				}
+				idProduto = Long.parseLong(request.getParameter("id"));
+				p = new Produto();
+				p = daoProduto.getProdutoPorId(idProduto);
+				carrinho.add(p);
+				PrintWriter out = response.getWriter();
+				response.setContentType("text/html");
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('Produto adicionado ao carrinho com Sucesso!');");
+				out.println("var url= \"/ProjetoLES/index.jsp\"; location = url; </script>");
+			} else {
+				response.sendRedirect("/ProjetoLES/login");
+			}
 			break;
 		default:
 			break;
@@ -49,29 +73,9 @@ public class CarrinhoController extends HttpServlet {
 		
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Produto> carrinho;
-		if (request.getSession().getAttribute("carrinho") == null) {
-			carrinho = new ArrayList<Produto>();
-			request.getSession().setAttribute("carrinho", carrinho);
-		} else {
-			carrinho = (List<Produto>) request.getSession().getAttribute("carrinho");
-		}
-		
-		long idProduto = Long.parseLong(request.getParameter("id"));
-		Produto p = new Produto();
-		p = daoProduto.getProdutoPorId(idProduto);
-		
-		carrinho.add(p);
-		
-		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
-		out.println("<script type=\"text/javascript\">");
-		out.println("alert('Chamada Realizada com Sucesso!');");
-		out.println("var url= \"./index.jsp\"; window.location = url; </script>"); 
-		
+		doGet(request, response);
 	}
 	
 }

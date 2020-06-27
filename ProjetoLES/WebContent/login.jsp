@@ -14,11 +14,11 @@
 		<h2> Login </h2>
 		<form action="./login" method="post">
 			<div class="input">
-				<input type="text" name="usuario" required="">
+				<input type="text" name="usuario" required id="usuario">
 				<label> Usuário </label>
 			</div>
 			<div class="input">
-				<input type="password" name="senha" required="">
+				<input type="password" name="senha" required id="senha">
 				<label> Senha </label>
 			</div>
 			<button type="submit" id="cmd" name="cmd" value="login">Entrar</button>

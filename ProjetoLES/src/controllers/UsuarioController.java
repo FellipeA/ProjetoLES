@@ -13,6 +13,7 @@ public class UsuarioController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("usuario", null);
+		request.getSession().setAttribute("carrinho", null);
 		response.sendRedirect("./");
 	}
 	
