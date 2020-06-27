@@ -1,18 +1,7 @@
 /* Geral do Site */
-html
-{
-	background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
-	background-repeat: no-repeat;
-	height: 100%;
-}
 body 
 {
-	
    	font-family: 'Roboto', sans-serif;
-    color: #000000;
-	margin: 0px;
-	padding: 0px;
-
 }
 .botao 
 {
@@ -24,66 +13,103 @@ body
     border-radius: 3px;
 }
 /* Menu de Navegação */
-nav ul
+.carousel-item
 {
-	background: transparent;
-	overflow: hidden;
-	color: #fff;
-	padding: 0px;
-	text-align: center;
+	height: 100vh;
+	min-height: 300px;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	background-size: cover;
 }
-nav ul li
+
+.carousel-caption
 {
-	margin-right: 20px;
-	margin-left: 0px;
-	display: inline-block;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	margin-top: 40px;
-	transition: all 0.8s ease 0s;
+	margin-bottom: 40vh;
 }
-nav ul li a
+
+.carousel-caption h5
 {
-	text-decoration: none;
+	font-size: 45px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 	color: black;
-	padding: 20px;
 }
-nav ul li:hover
+
+.carousel-caption p
 {
-	border-radius: 10px;
-	background-image: linear-gradient(90deg, rgba(31,181,212,1) 35%, rgba(254,254,254,1) 72%);
+	width: 75%;
+	margin: auto;
+	font-size: 18px;
+	line-height: 1.9;
+	color: black;
+}
+
+.d-block w-100
+{
+	opacity: 0.5;
+}
+
+#containerid a
+{
+	color: black;
+	text-decoration: none;
+	transition: 800ms;
+}
+
+#containerid a:hover
+{
+	color: blue;
 	transform: scale(1.1);
 }
-nav h1
+/* Slider */
+#carouselExampleIndicators
 {
-	width:200px;
-	float: left;
-	cursor: pointer;
+	margin-top: 7vh;
 }
-nav img
+nav
 {
-	padding-left:600px;
-	width: 50%;
-	height:auto;
-   	cursor: default;
+	font-size: 20px;
+	background-color: white;
+	color: black;
 }
-/* Slides */
-.slides
+.navbar-brand
 {
-	padding-top: 30px;
-	margin-left: 25% !important;
+	color: #fff;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
-.slides ul
+/* Sobre */
+#sobre 
 {
-	list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 40px;
+    color: #000000;
+	display: flex;
 }
-.slides img
-{
-	width: 984px;
-	height: 474px;
-}
-/* Produtos */
 
+#sobre p 
+{
+    margin-bottom: 2.5em;
+    max-width: 1000px;
+	color: #000000;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#sobre .botao 
+{
+    background-color: #f1f1f1;
+    color: #4d4d4d;
+}
+#sobre .botao:hover
+{
+    background-color: #000000;
+}
 /* Rodapé */
 .footer
 {
@@ -95,8 +121,7 @@ nav img
 	font: normal 16px sans-serif;
 	padding: 45px 50px;
 	margin-top: 20px;
-	position: fixed;
-	bottom: 0;
+	position: relative;
 }
 .footer .footeresquerda p
 {

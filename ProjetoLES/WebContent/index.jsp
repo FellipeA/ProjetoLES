@@ -1,10 +1,9 @@
 <%@page import="entity.Usuario"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/index.css">
 <link
@@ -12,53 +11,83 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <title>Upsell Hardware - Home</title>
 </head>
 <body>
-	<!-- Menu de Nevagação -->
-	<div id="navdiv">
-		<nav>
-			<ul>
-				<h1>
-					<img src="./img/logo.png"></img>
-				</h1>
-				<li><a href="#home"> Home </a></li>
-				<li><a href="#produtos"> Produtos </a></li>
-				<li><a href="#carrinho"> Carrinho </a></li>
-				<%
-					Usuario usuario = new Usuario();
-				usuario = (Usuario) session.getAttribute("usuario");
-				if (usuario != null) {
-				%><li style="color: black">Olá, <%=usuario.getUsuario()%></li>
-				<%
-					
-				%><li><a href="./usuario">Sair</a></li>
-				<%
-					if (usuario.temPermissaoAdmin()) {
-				%><li style="color: black"><a href="inserirproduto.jsp">
-						Inserir Novo Produto </a></li>
-				<%
-					}
-				} else {
-				%><li style="color: black"><a href="login.jsp"> Cadastro /
-						Login </a></li>
-				<%
-					}
-				%>
-			</ul>
-		</nav>
-	</div>
+	<!-- Menu de NavegaÃ§Ã£o -->
+	<nav class="navbar navbar-expand-lg fixed-top">
+		<div class="container" id="containerid">
+			<a class="navbar-brand" href="#">Upsell Hardware</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" href="#">Home
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Produtos</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Cadastro
+							/ Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><img src="./img/carrinho.svg"></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<!-- Slider -->
-	<div class="slides">
-		<ul>
-			<li><a><img src="./img/nvidia.jpg" /></a></li>
-			<li><a><img src="./img/amd.jpg" /></a></li>
-			<li><a><img src="./img/intel.jpg" /></a></li>
-		</ul>
+	<div id="carouselExampleIndicators" class="carousel slide" 
+		data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="./img/intel.png" class="d-block w-100">
+			</div>
+			<div class="carousel-item">
+				<img src="./img/nvidiaslider.png" class="d-block w-100" alt="...">
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
 	</div>
+	<!-- Sobre -->
+	<Section id="sobre">
+		<h2> Sobre NÃ³s </h2>
+		<p>Somos uma empresa com iniciativa de cunho particular destinada ao desenvolvimento de aplicaÃ§Ãµes para facilitar 
+			a compreensÃ£o e desenvolvimento do estudante em uma vasta gama de matÃ©rias.</p>
+		<a href="#contato" class="botao">Cadastre-se</a>
+	</section>
 	<!-- Produtos -->
-	
-	<!-- Rodapé -->
+	<div class="container">
+		<div class="row row-cols-1 row-cols-md-4">
+			<div class="col mb-4">
+				<div class="card">
+					<img src="img/cel.jpg" class="card-img-top" alt="Repelente">
+					<div class="card-body">
+						<h5 class="card-title">Celular Motorola</h5>
+						<p class="card-text">R$ 1500,00</p>
+						<button class="btn btn-primary">Comprar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- RodapÃ© -->
 	<footer class="footer">
 		<div class="footerdireita">
 			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
@@ -67,16 +96,16 @@
 		</div>
 		<div class="footeresquerda">
 			<p class="footerbotoes">
-				<a href="#home">Home</a> · <a href="#produtos">Produtos</a> · <a
-					href="#produtos">Carrinho</a> · <a href="#">Cadastro / Login</a>
+				<a href="#home">Home</a> Â· <a href="#produtos">Produtos</a> Â· <a
+					href="#produtos">Carrinho</a> Â· <a href="#">Cadastro / Login</a>
 			</p>
 			<p>Upsell Hardware &copy; 2020</p>
 		</div>
 	</footer>
-	<script type='text/javascript'
-		src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
-	<script type='text/javascript'
-		src='http://malsup.github.com/jquery.cycle.all.js'></script>
-	<script type="text/javascript" src="./javascript/slider.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
