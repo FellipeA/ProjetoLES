@@ -1,19 +1,23 @@
 <%@page import="entity.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Upsell Hardware - Carrinho</title>
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="./css/index.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Upsell Hardware - Carrinho</title>
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<link rel="stylesheet" type="text/css" href="./css/carrinho.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 <body>
 	<!-- Menu de Navegação -->
@@ -68,52 +72,64 @@
 		</div>
 	</nav>
 	<!-- FIM NAV BAR -->
-	
-<div class="container">
-	<table id="cart" class="table table-hover table-condensed">
-    				<thead>
-						<tr>
-							<th style="width:50%">Product</th>
-							<th style="width:10%">Price</th>
-							<th style="width:8%">Quantity</th>
-							<th style="width:22%" class="text-center">Subtotal</th>
-							<th style="width:10%"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td data-th="Product">
-								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-									<div class="col-sm-10">
-										<h4 class="nomargin">Product 1</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-									</div>
-								</div>
-							</td>
-							<td data-th="Price">$1.99</td>
-							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
-							</td>
-							<td data-th="Subtotal" class="text-center">1.99</td>
-							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
-							</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1.99</strong></td>
-						</tr>
-						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-						</tr>
-					</tfoot>
-				</table>
+
+	<h1>Carrinho</h1>
+
+	<div class="shopping-cart">
+
+		<div class="column-labels">
+			<label class="product-image">Image</label> <label
+				class="product-details">Product</label> <label class="product-price">Price</label>
+			<label class="product-quantity">Quantity</label> <label
+				class="product-removal">Remove</label> <label
+				class="product-line-price">Total</label>
+		</div>
+
+		<div class="product">
+			<div class="product-image">
+				<img src="img/cpu.jpg">
+			</div>
+			<div class="product-details">
+				<div class="product-title">Processador I5 5GHZ</div>
+				<p class="product-description">Super processador na promoção</p>
+			</div>
+			<div class="product-price">5.000,00</div>
+			<div class="product-quantity">
+				<input type="number" value="2" min="1">
+			</div>
+			<div class="product-removal">
+				<button class="remove-product">Remove</button>
+			</div>
+			<div class="product-line-price">5.000,00</div>
+		</div>
+
+
+		<div class="totals">
+			<div class="totals-item">
+				<label>Subtotal</label>
+				<div class="totals-value" id="cart-subtotal">71.97</div>
+			</div>
+			<div class="totals-item">
+				<label>Tax (5%)</label>
+				<div class="totals-value" id="cart-tax">3.60</div>
+			</div>
+			<div class="totals-item">
+				<label>Shipping</label>
+				<div class="totals-value" id="cart-shipping">15.00</div>
+			</div>
+			<div class="totals-item totals-item-total">
+				<label>Grand Total</label>
+				<div class="totals-value" id="cart-total">90.57</div>
+			</div>
+		</div>
+
+		<button class="checkout">Checkout</button>
+
 	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script type="text/javascript" src="./css/Carrinho.js"></script>
 </body>
 </html>

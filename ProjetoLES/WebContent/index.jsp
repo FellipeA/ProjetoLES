@@ -113,7 +113,6 @@
 		<h2>Qualidade Garantida!</h2>
 		<p>Somos uma empresa focada na melhor experiência possível de nossos cliente, <br><nobr>
 			para isso oferecemos <b>GARANTIA</b> de 3 <b>MESES</b> para qualquer um de nosssos <b>PRODUTOS</b>.</nobr></p>
-		<a href="#contato" class="botao">Cadastre-se</a>
 	</section>
 	<!-- Produtos -->
 	

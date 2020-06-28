@@ -20,13 +20,42 @@ public class DaoProduto {
 	
 	public boolean insereProduto(Produto p) {
 		try {
-			String sql = "INSERT INTO produto(nome, descricao, preco) "
-					+ "VALUES ("+p.getNome()+", "+p.getDescricao()+", "+p.getPreco()+")";
+			String sql = "INSERT INTO produto VALUES ('"+p.getNome()+"', '"+p.getDescricao()+"', "+p.getPreco()+")";
 			Statement stmt = c.createStatement();
 			stmt.execute(sql);
 			stmt.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean excluirProduto(Long id) {
+		try {
+			String sql = "DELETE produto WHERE id = "+id+"";
+			Statement stmt = c.createStatement();
+			stmt.execute(sql);
+			stmt.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean atualizarProduto(Produto p) {
+		try {
+			String sql = "UPDATE produto SET nome = '"+p.getNome()+"', "
+											+ "descricao = '"+p.getDescricao()+"', "
+											+ "preco = "+p.getPreco()+" "
+											+ "where id = "+p.getId()+"";
+			Statement stmt = c.createStatement();
+			stmt.execute(sql);
+			stmt.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -72,4 +101,22 @@ public class DaoProduto {
 		return p;
 	}
 	
+	public Produto getProdutoPorNome(String nome) {
+		Produto p = new Produto();
+		try {
+			String sql = "Select * from produto where nome like '"+nome+"' + '%'";			
+			Statement stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				p = new Produto();
+				p.setId(rs.getLong("id"));
+				p.setNome(rs.getString("nome"));
+				p.setDescricao(rs.getString("descricao"));
+				p.setPreco(rs.getDouble("preco"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
 }
