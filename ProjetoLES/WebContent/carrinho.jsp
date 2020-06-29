@@ -84,11 +84,10 @@
 	<div class="shopping-cart">
 
 		<div class="column-labels">
-			<label class="product-image">Image</label> <label
-				class="product-details">Product</label> <label class="product-price">Price</label>
-			<label class="product-quantity">Quantity</label> <label
-				class="product-removal">Remove</label> <label
-				class="product-line-price">Total</label>
+			<label class="product-image">Image,</label> <label
+				class="product-details">Produto</label> <label class="product-price">Preço</label>
+			<label class="product-quantity">Quantidade</label> <label
+				class="product-removal">Remover</label>
 		</div>
 
 		<%
@@ -115,7 +114,6 @@
 						<div class="product-removal">
 							<a href="/ProjetoLES/carrinho/remover?id=<%=p.getId() %>"><img class="trashCan" src="img/trash.svg"/></a>
 						</div>
-						<div class="product-line-price">5.000,00</div>
 					</div>
 				<%
 			}
