@@ -47,7 +47,7 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <span style="color: black;"><%=usuario.getUsuario()%></span>
+						aria-expanded="false"> <span style="color: black;">Olá, <%=usuario.getUsuario()%></span>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="./usuario">Sair</a>
@@ -82,6 +82,7 @@
 			</div>
 		</div>
 	</nav>
+	
 	<!-- Slider -->
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel">

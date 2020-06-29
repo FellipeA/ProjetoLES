@@ -28,6 +28,8 @@ public class CarrinhoController extends HttpServlet {
 		List<Produto> carrinho;
 		Produto p;
 		long idProduto;
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
 		switch (path) {
 		case "":
 			response.sendRedirect("/ProjetoLES/carrinho.jsp");
@@ -36,10 +38,18 @@ public class CarrinhoController extends HttpServlet {
 			carrinho = (List<Produto>) request.getSession().getAttribute("carrinho");
 			idProduto = Long.parseLong(request.getParameter("id"));
 			p = daoProduto.getProdutoPorId(idProduto);
-			carrinho.remove(p);
+			for (int i = 0 ; i<carrinho.size(); i++) {
+				if(carrinho.get(i).getNome().equals(p.getNome())) {
+					carrinho.remove(i);
+				}
+			}
+			response.sendRedirect("/ProjetoLES/carrinho/");
 			break;
 		case "finalizar":
-			finalizarCompra(request, response);
+			request.getSession().setAttribute("carrinho", null);
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Compra realizada com sucesso!');");
+			out.println("var url= \"/ProjetoLES/\"; location = url; </script>");
 			break;
 		case "add":
 			if (request.getSession().getAttribute("usuario") != null) {
@@ -53,11 +63,9 @@ public class CarrinhoController extends HttpServlet {
 				p = new Produto();
 				p = daoProduto.getProdutoPorId(idProduto);
 				carrinho.add(p);
-				PrintWriter out = response.getWriter();
-				response.setContentType("text/html");
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Produto adicionado ao carrinho com Sucesso!');");
-				out.println("var url= \"/ProjetoLES/index.jsp\"; location = url; </script>");
+				out.println("var url= \"/ProjetoLES/\"; location = url; </script>");
 			} else {
 				response.sendRedirect("/ProjetoLES/login");
 			}
@@ -66,16 +74,4 @@ public class CarrinhoController extends HttpServlet {
 			break;
 		}
 	}
-	
-	@SuppressWarnings("unchecked")
-	private void finalizarCompra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Produto> carrinho = (List<Produto>) request.getSession().getAttribute("carrinho");
-		
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-	
 }

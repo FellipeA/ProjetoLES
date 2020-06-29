@@ -5,7 +5,7 @@
  
 .product-details {
   float: left;
-  width: 37%;
+  width: 18%;
 }
  
 .product-price {
@@ -50,7 +50,7 @@
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
 .product .product-price:before, .product .product-line-price:before, .totals-value:before {
-  content: '$';
+  content: 'R$';
 }
  
 body {
@@ -68,7 +68,7 @@ label {
 }
  
 .shopping-cart {
-  margin-top: -45px;
+  margin-top: 45px;
 }
  
 .column-labels label {
@@ -151,77 +151,7 @@ label {
   background-color: #494;
 }
  
-@media screen and (max-width: 650px) {
-  .shopping-cart {
-    margin: 0;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-  }
- 
-  .column-labels {
-    display: none;
-  }
- 
-  .product-image {
-    float: right;
-    width: auto;
-  }
-  .product-image img {
-    margin: 0 0 10px 10px;
-  }
- 
-  .product-details {
-    float: none;
-    margin-bottom: 10px;
-    width: auto;
-  }
- 
-  .product-price {
-    clear: both;
-    width: 70px;
-  }
- 
-  .product-quantity {
-    width: 100px;
-  }
-  .product-quantity input {
-    margin-left: 20px;
-  }
- 
-  .product-quantity:before {
-    content: 'x';
-  }
- 
-  .product-removal {
-    width: auto;
-  }
- 
-  .product-line-price {
-    float: right;
-    width: 70px;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .product-removal {
-    float: right;
-  }
- 
-  .product-line-price {
-    float: right;
-    clear: left;
-    width: auto;
-    margin-top: 10px;
-  }
- 
-  .product .product-line-price:before {
-    content: 'Item Total: $';
-  }
- 
-  .totals .totals-item label {
-    width: 60%;
-  }
-  .totals .totals-item .totals-value {
-    width: 40%;
-  }
+.trashCan {
+	width: 25px;
+	height: 25px;
 }
