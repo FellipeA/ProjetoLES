@@ -62,7 +62,6 @@
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="./inserirproduto.jsp">Inserir Novo Produto</a>
-							<a class="dropdown-item" href="./relatorio.jsp">Relátorio de Vendas</a>
 						</div></li>
 					<%
 						}
